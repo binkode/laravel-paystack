@@ -51,7 +51,7 @@ trait Request
   public static function request($endpoint, $params, $method = 'get')
   {
     $cm       = self::config();
-    $authBearer = "Bearer $cm->secretKey";
+    $authBearer = "Bearer $cm->secret_key";
 
     $res = Http::withHeaders([
       'Authorization' => $authBearer,
