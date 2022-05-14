@@ -50,7 +50,7 @@ PAYSTACK_MERCHANT_EMAIL=username@email.extension
 
 ### Transaction
 ```php
-use Myckhel\Mono\Support\Account;
+use Myckhel\Paystack\Support\Transaction;
 
 Transaction::list($params);
 
