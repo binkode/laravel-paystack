@@ -1,0 +1,44 @@
+{
+    "name": "myckhel/laravel-paystack",
+    "description": "A description for laravel-paystack.",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "laravel"
+    ],
+    "authors": [
+        {
+            "name": "myckhel",
+            "email": "myckhel1@hotmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^7.0|^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Myckhel\\Paystack\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Myckhel\\Paystack\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Myckhel\\Paystack\\PaystackServiceProvider"
+            ],
+            "aliases": {
+                "Paystack": "Myckhel\\Paystack\\Facades\\Paystack"
+            }
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    }
+}
