@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Myckhel\Paystack\Traits\Config;
+use Myckhel\Paystack\Traits\PaystackConfig;
 // use Myckhel\Paystack\Http\Controllers\HookController;
 
-$middleware  = Config::config('route.middleware');
-$prefix      = Config::config('route.prefix');
+$middleware  = PaystackConfig::config('route.middleware');
+$prefix      = PaystackConfig::config('route.prefix');
 
 Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
   $routes = [
