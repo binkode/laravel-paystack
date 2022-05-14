@@ -171,16 +171,16 @@ class EventServiceProvider extends ServiceProvider
 ### Using built in routes
 ```
 POST            /hooks ......................................... Myckhel\Paystack\Http\Controllers\HookController@hook
-  GET|HEAD        /transaction ............................ Myckhel\Paystack\Http\Controllers\TransactionController@list
-  POST            /transaction/charge_authorization Myckhel\Paystack\Http\Controllers\TransactionController@charge_auth…
-  POST            /transaction/check_authorization Myckhel\Paystack\Http\Controllers\TransactionController@check_author…
-  GET|HEAD        /transaction/export ................... Myckhel\Paystack\Http\Controllers\TransactionController@export
-  POST            /transaction/initialize ........... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
-  POST            /transaction/partial_debit ..... Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
-  GET|HEAD        /transaction/timeline/{id_or_reference} Myckhel\Paystack\Http\Controllers\TransactionController@viewT…
-  GET|HEAD        /transaction/totals ................... Myckhel\Paystack\Http\Controllers\TransactionController@totals
-  GET|HEAD        /transaction/verify/{reference} ....... Myckhel\Paystack\Http\Controllers\TransactionController@verify
-  GET|HEAD        /transaction/{transaction} ............. Myckhel\Paystack\Http\Controllers\TransactionController@fetch
+GET|HEAD        /transaction ............................ Myckhel\Paystack\Http\Controllers\TransactionController@list
+POST            /transaction/charge_authorization Myckhel\Paystack\Http\Controllers\TransactionController@charge_auth…
+POST            /transaction/check_authorization Myckhel\Paystack\Http\Controllers\TransactionController@check_author…
+GET|HEAD        /transaction/export ................... Myckhel\Paystack\Http\Controllers\TransactionController@export
+POST            /transaction/initialize ........... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
+POST            /transaction/partial_debit ..... Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
+GET|HEAD        /transaction/timeline/{id_or_reference} Myckhel\Paystack\Http\Controllers\TransactionController@viewT…
+GET|HEAD        /transaction/totals ................... Myckhel\Paystack\Http\Controllers\TransactionController@totals
+GET|HEAD        /transaction/verify/{reference} ....... Myckhel\Paystack\Http\Controllers\TransactionController@verify
+GET|HEAD        /transaction/{transaction} ............. Myckhel\Paystack\Http\Controllers\TransactionController@fetch
 ```
 
 <!-- 
