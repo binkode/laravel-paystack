@@ -1,6 +1,8 @@
 # laravel-paystack
 Use [Paystack](https://paystack.com) Apis in your laravel project.
 
+> There are other libraries but this was created to solve the issues such as flexibility and ability to call paystack apis in laravel Job scope.
+
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Travis](https://img.shields.io/travis/myckhel/laravel-paystack.svg?style=flat-square)]()
 [![Total Downloads](https://img.shields.io/packagist/dt/myckhel/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/myckhel/laravel-paystack)
@@ -45,6 +47,31 @@ PAYSTACK_MERCHANT_EMAIL=username@email.extension
 ```
 
 ## Usage
+
+### Transaction
+```php
+use Myckhel\Mono\Support\Account;
+
+Transaction::list($params);
+
+Transaction::initialize($params);
+
+Transaction::verify($reference, $params);
+
+Transaction::fetch($transaction, $params);
+
+Transaction::charge_authorization($params);
+
+Transaction::check_authorization($params);
+
+Transaction::viewTimeline($id_or_reference, $params);
+
+Transaction::totals($params);
+
+Transaction::export($params);
+
+Transaction::partial_debit($params);
+```
 
 ### Apple Pay
 ### Subaccounts
@@ -143,6 +170,17 @@ class EventServiceProvider extends ServiceProvider
 
 ### Using built in routes
 ```
+POST            api/v1/paystack/hooks ......................................... Myckhel\Paystack\Http\Controllers\HookController@hook
+  GET|HEAD        api/v1/paystack/transaction ............................ Myckhel\Paystack\Http\Controllers\TransactionController@list
+  POST            api/v1/paystack/transaction/charge_authorization Myckhel\Paystack\Http\Controllers\TransactionController@charge_auth…
+  POST            api/v1/paystack/transaction/check_authorization Myckhel\Paystack\Http\Controllers\TransactionController@check_author…
+  GET|HEAD        api/v1/paystack/transaction/export ................... Myckhel\Paystack\Http\Controllers\TransactionController@export
+  POST            api/v1/paystack/transaction/initialize ........... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
+  POST            api/v1/paystack/transaction/partial_debit ..... Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
+  GET|HEAD        api/v1/paystack/transaction/timeline/{id_or_reference} Myckhel\Paystack\Http\Controllers\TransactionController@viewT…
+  GET|HEAD        api/v1/paystack/transaction/totals ................... Myckhel\Paystack\Http\Controllers\TransactionController@totals
+  GET|HEAD        api/v1/paystack/transaction/verify/{reference} ....... Myckhel\Paystack\Http\Controllers\TransactionController@verify
+  GET|HEAD        api/v1/paystack/transaction/{transaction} ............. Myckhel\Paystack\Http\Controllers\TransactionController@fetch
 ```
 
 <!-- 
