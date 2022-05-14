@@ -73,24 +73,33 @@ Transaction::export($params);
 Transaction::partial_debit($params);
 ```
 
-### Apple Pay
+### Apple Pay **TODO**
 ### Subaccounts
-### Plans
-### Subscriptions
-### Products
-### Payment Pages
-### Invoices
-### Settlements
-### Transfer Recipients
-### Transfers
-### Transfers Control
-### Bulk Charges
-### Control Panel
-### Charge
-### Disputes
-### Refunds
-### Verification
-### Miscellaneous
+```php
+use Myckhel\Paystack\Support\SubAccount;
+
+SubAccount::create($params);
+SubAccount::list($params);
+SubAccount::fetch($subaccount, $params);
+SubAccount::update($subaccount, $params);
+```
+
+### Plans **TODO**
+### Subscriptions **TODO**
+### Products **TODO**
+### Payment Pages **TODO**
+### Invoices **TODO**
+### Settlements **TODO**
+### Transfer Recipients **TODO**
+### Transfers **TODO**
+### Transfers Control **TODO**
+### Bulk Charges **TODO**
+### Control Panel **TODO**
+### Charge **TODO**
+### Disputes **TODO**
+### Refunds **TODO**
+### Verification **TODO**
+### Miscellaneous **TODO**
 ```php
 ```
 
@@ -170,17 +179,19 @@ class EventServiceProvider extends ServiceProvider
 
 ### Using built in routes
 ```
-POST            /hooks ......................................... Myckhel\Paystack\Http\Controllers\HookController@hook
-GET|HEAD        /transaction ............................ Myckhel\Paystack\Http\Controllers\TransactionController@list
-POST            /transaction/charge_authorization Myckhel\Paystack\Http\Controllers\TransactionController@charge_auth…
-POST            /transaction/check_authorization Myckhel\Paystack\Http\Controllers\TransactionController@check_author…
-GET|HEAD        /transaction/export ................... Myckhel\Paystack\Http\Controllers\TransactionController@export
-POST            /transaction/initialize ........... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
-POST            /transaction/partial_debit ..... Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
-GET|HEAD        /transaction/timeline/{id_or_reference} Myckhel\Paystack\Http\Controllers\TransactionController@viewT…
-GET|HEAD        /transaction/totals ................... Myckhel\Paystack\Http\Controllers\TransactionController@totals
-GET|HEAD        /transaction/verify/{reference} ....... Myckhel\Paystack\Http\Controllers\TransactionController@verify
-GET|HEAD        /transaction/{transaction} ............. Myckhel\Paystack\Http\Controllers\TransactionController@fetch
+  POST            hooks ......................................................... Myckhel\Paystack\Http\Controllers\HookController@hook
+  GET|HEAD        subaccount .............................................. Myckhel\Paystack\Http\Controllers\SubAccountController@list
+  PUT             subaccount/{subaccount} ............................... Myckhel\Paystack\Http\Controllers\SubAccountController@update
+  GET|HEAD        transaction ............................................ Myckhel\Paystack\Http\Controllers\TransactionController@list
+  POST            transaction/charge_authorization ....... Myckhel\Paystack\Http\Controllers\TransactionController@charge_authorization
+  POST            transaction/check_authorization ......... Myckhel\Paystack\Http\Controllers\TransactionController@check_authorization
+  GET|HEAD        transaction/export ................................... Myckhel\Paystack\Http\Controllers\TransactionController@export
+  POST            transaction/initialize ........................... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
+  POST            transaction/partial_debit ..................... Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
+  GET|HEAD        transaction/timeline/{id_or_reference} ......... Myckhel\Paystack\Http\Controllers\TransactionController@viewTimeline
+  GET|HEAD        transaction/totals ................................... Myckhel\Paystack\Http\Controllers\TransactionController@totals
+  GET|HEAD        transaction/verify/{reference} ....................... Myckhel\Paystack\Http\Controllers\TransactionController@verify
+  GET|HEAD        transaction/{transaction} ............................. Myckhel\Paystack\Http\Controllers\TransactionController@fetch
 ```
 
 <!-- 
