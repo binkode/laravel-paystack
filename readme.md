@@ -73,14 +73,35 @@ Transaction::export($params);
 Transaction::partial_debit($params);
 ```
 
+### Transaction Split
+```php
+use Myckhel\Paystack\Support\Split;
+
+Split::create($params);
+
+Split::list($params);
+
+Split::fetch($spli, $params);
+
+Split::update($spli, $params);
+
+Split::add($spli, $params);
+
+Split::remove($spli, $params);
+
+```
+
 ### Apple Pay **TODO**
 ### Subaccounts
 ```php
 use Myckhel\Paystack\Support\SubAccount;
 
 SubAccount::create($params);
+
 SubAccount::list($params);
+
 SubAccount::fetch($subaccount, $params);
+
 SubAccount::update($subaccount, $params);
 ```
 
