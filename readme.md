@@ -81,13 +81,13 @@ Split::create($params);
 
 Split::list($params);
 
-Split::fetch($spli, $params);
+Split::fetch($split, $params);
 
-Split::update($spli, $params);
+Split::update($split, $params);
 
-Split::add($spli, $params);
+Split::add($split, $params);
 
-Split::remove($spli, $params);
+Split::remove($split, $params);
 
 ```
 
