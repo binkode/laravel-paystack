@@ -105,6 +105,25 @@ SubAccount::fetch($subaccount, $params);
 SubAccount::update($subaccount, $params);
 ```
 
+### Customer
+```php
+use Myckhel\Paystack\Support\Customer;
+
+Customer::create($params);
+
+Customer::list($params);
+
+Customer::fetch($customer, $params);
+
+Customer::update($customer, $params);
+
+Customer::identification($customer, $params);
+
+Customer::set_risk_action($customer, $params);
+
+Customer::deactivate_authorization($params);
+```
+
 ### Plans **TODO**
 ### Subscriptions **TODO**
 ### Products **TODO**

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Myckhel\Paystack\Http\Controllers\CustomerController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
@@ -13,30 +14,38 @@ $prefix      = PaystackConfig::config('route.prefix');
 Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
   $routes = [
     // hooks
-    'hooks'                           => 'post,hook,hook',
+    'post,hooks'                            => 'hook,hook',
     // transactions
-    'transaction'                     => 'get,transaction,list',
-    'transaction/initialize'          => 'post,transaction,initialize',
-    'transaction/verify/{reference}'  => 'get,transaction,verify',
-    'transaction/{transaction}'       => 'get,transaction,fetch',
-    'transaction/charge_authorization' => 'post,transaction,charge_authorization',
-    'transaction/check_authorization' => 'post,transaction,check_authorization',
-    'transaction/timeline/{id_or_reference}' => 'get,transaction,viewTimeline',
-    'transaction/totals'      => 'get,transaction,totals',
-    'transaction/export'      => 'get,transaction,export',
-    'transaction/partial_debit'       => 'post,transaction,partial_debit',
+    'get,transaction'                       => 'transaction,list',
+    'post,transaction/initialize'           => 'transaction,initialize',
+    'get,transaction/verify/{reference}'    => 'transaction,verify',
+    'get,transaction/{transaction}'         => 'transaction,fetch',
+    'post,transaction/charge_authorization' => 'transaction,charge_authorization',
+    'post,transaction/check_authorization'  => 'transaction,check_authorization',
+    'get,transaction/timeline/{id_or_reference}' => 'transaction,viewTimeline',
+    'get,transaction/totals'      => 'transaction,totals',
+    'get,transaction/export'      => 'transaction,export',
+    'post,transaction/partial_debit'        => 'transaction,partial_debit',
     // splits
-    'split'       => 'post,split,create',
-    'split'       => 'get,split,list',
-    'split/{split}'    => 'get,split,fetch',
-    'split/{split}'    => 'put,split,update',
-    'split/{split}/subaccount/add'  => 'post,split,add',
-    'split/{split}/subaccount/remove'  => 'post,split,remove',
+    'post,split'        => 'split,create',
+    'get,split'         => 'split,list',
+    'get,split/{split}' => 'split,fetch',
+    'put,split/{split}' => 'split,update',
+    'post,split/{split}/subaccount/add'     => 'split,add',
+    'post,split/{split}/subaccount/remove'  => 'split,remove',
     // subaccounts
-    'subaccount'       => 'post,subaccount,create',
-    'subaccount'       => 'get,subaccount,list',
-    'subaccount/{subaccount}' => 'get,subaccount,fetch',
-    'subaccount/{subaccount}' => 'put,subaccount,update',
+    'post,subaccount'       => 'subaccount,create',
+    'get,subaccount'        => 'subaccount,list',
+    'get,subaccount/{subaccount}' => 'subaccount,fetch',
+    'put,subaccount/{subaccount}' => 'subaccount,update',
+    // customers
+    'post,customer'       => 'customer,create',
+    'get,customer'        => 'customer,list',
+    'get,customer/{customer}' => 'customer,fetch',
+    'put,customer/{customer}' => 'customer,update',
+    'post,customer/{customer}/identification' => 'customer,identification',
+    'post,customer/set_risk_action' => 'customer,set_risk_action',
+    'post,customer/deactivate_authorization' => 'customer,deactivate_authorization',
   ];
 
   $controls = [
@@ -44,10 +53,12 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'transaction'     => TransactionController::class,
     'subaccount'      => SubAccountController::class,
     'split'           => SplitController::class,
+    'customer'        => CustomerController::class,
   ];
 
-  collect($routes)->map(function ($route, $endpoint) use ($controls) {
-    [$method, $control, $func] = explode(',', $route);
+  collect($routes)->map(function ($route, $index) use ($controls) {
+    [$method, $endpoint] = explode(',', $index);
+    [$control, $func] = explode(',', $route);
     Route::$method($endpoint, [$controls[$control], $func]);
   });
 });
