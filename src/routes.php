@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Myckhel\Paystack\Http\Controllers\CustomerController;
+use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
@@ -46,6 +47,14 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,customer/{customer}/identification' => 'customer,identification',
     'post,customer/set_risk_action' => 'customer,set_risk_action',
     'post,customer/deactivate_authorization' => 'customer,deactivate_authorization',
+    // DedicatedVirtualAccount (dva)
+    'post,dedicated_account'      => 'dva,create',
+    'get,dedicated_account'       => 'dva,list',
+    'get,dedicated_account/{dedicated_account}'       => 'dva,fetch',
+    'delete,dedicated_account/{dedicated_account}'    => 'dva,remove',
+    'post,dedicated_account/split'    => 'dva,split',
+    'delete,dedicated_account/split'  => 'dva,removeSplit',
+    'get,dedicated_account/available_providers'  => 'dva,providers',
   ];
 
   $controls = [
@@ -54,6 +63,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'subaccount'      => SubAccountController::class,
     'split'           => SplitController::class,
     'customer'        => CustomerController::class,
+    'dva'             => DedicatedVirtualAccountController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

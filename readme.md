@@ -124,6 +124,25 @@ Customer::set_risk_action($customer, $params);
 Customer::deactivate_authorization($params);
 ```
 
+### Dedicated Virtual Accounts
+```php
+use Myckhel\Paystack\Support\DedicatedVirtualAccount;
+
+DedicatedVirtualAccount::create($params);
+
+DedicatedVirtualAccount::list($params);
+
+DedicatedVirtualAccount::fetch($dedicated_account, $params);
+
+DedicatedVirtualAccount::remove($dedicated_account, $params);
+
+DedicatedVirtualAccount::split($params);
+
+DedicatedVirtualAccount::removeSplit($params);
+
+DedicatedVirtualAccount::providers($params);
+```
+
 ### Plans **TODO**
 ### Subscriptions **TODO**
 ### Products **TODO**
