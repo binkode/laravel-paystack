@@ -8,6 +8,7 @@ use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
+use Myckhel\Paystack\Http\Controllers\ProductController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
 use Myckhel\Paystack\Http\Controllers\SubscriptionController;
@@ -75,6 +76,11 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,subscription/disable'         => 'subscription,disable',
     'get,subscription/{code}/manage/link'  => 'subscription,link',
     'post,subscription/{code}/manage/email' => 'subscription,sendUpdateSubscription',
+    // products
+    'post,product'                 => 'product,create',
+    'get,product'                  => 'product,list',
+    'get,product/{product}'        => 'product,fetch',
+    'put,product/{product}'        => 'product,update',
   ];
 
   $controls = [
@@ -87,6 +93,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'apple'           => ApplePayController::class,
     'plan'            => PlanController::class,
     'subscription'    => SubscriptionController::class,
+    'product'         => ProductController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

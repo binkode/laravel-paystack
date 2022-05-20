@@ -185,7 +185,19 @@ Subscription::link($code, $params);
 Subscription::sendUpdateSubscription($code, $params);
 ```
 
-### Products **TODO**
+### Products
+```php
+use Myckhel\Paystack\Support\Product;
+
+Product::create($params);
+
+Product::list($params);
+
+Product::fetch($product, $params);
+
+Product::update($product, $params);
+```
+
 ### Payment Pages **TODO**
 ### Invoices **TODO**
 ### Settlements **TODO**
