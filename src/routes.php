@@ -7,6 +7,7 @@ use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
+use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
 
@@ -60,6 +61,11 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,apple-pay/domain'     => 'apple,createDomain',
     'get,apple-pay/domain'      => 'apple,listDomains',
     'delete,apple-pay/domain'   => 'apple,removeDomain',
+    // plans
+    'post,plan'                 => 'plan,create',
+    'get,plan'                  => 'plan,list',
+    'get,plan/{plan}'           => 'plan,fetch',
+    'put,plan/{plan}'           => 'plan,update',
   ];
 
   $controls = [
@@ -70,6 +76,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'customer'        => CustomerController::class,
     'dva'             => DedicatedVirtualAccountController::class,
     'apple'           => ApplePayController::class,
+    'plan'            => PlanController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
