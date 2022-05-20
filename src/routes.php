@@ -11,6 +11,7 @@ use Myckhel\Paystack\Http\Controllers\InvoiceController;
 use Myckhel\Paystack\Http\Controllers\PageController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\ProductController;
+use Myckhel\Paystack\Http\Controllers\SettlementController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
 use Myckhel\Paystack\Http\Controllers\SubscriptionController;
@@ -100,6 +101,9 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,paymentrequest/totals'   => 'invoice,totals',
     'post,paymentrequest/finalize/{invoice_code}' => 'invoice,finalize',
     'post,paymentrequest/archive/{invoice_code}'  => 'invoice,archive',
+    // settlements
+    'get,settlement'    => 'settlement,list',
+    'get,settlement/{settlement}/transactions'    => 'settlement,transactions',
   ];
 
   $controls = [
@@ -115,6 +119,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'product'         => ProductController::class,
     'page'            => PageController::class,
     'invoice'         => InvoiceController::class,
+    'settlement'      => SettlementController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

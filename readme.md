@@ -238,7 +238,15 @@ Invoice::finalize($code, $params);
 Invoice::archive($code, $params);
 ```
 
-### Settlements **TODO**
+### Settlements
+```php
+use Myckhel\Paystack\Support\Settlement;
+
+Settlement::list($params);
+
+Settlement::transactions($settlement, $params);
+```
+
 ### Transfer Recipients **TODO**
 ### Transfers **TODO**
 ### Transfers Control **TODO**
@@ -249,8 +257,6 @@ Invoice::archive($code, $params);
 ### Refunds **TODO**
 ### Verification **TODO**
 ### Miscellaneous **TODO**
-```php
-```
 
 ### Using WebHook route
 Laravel paystack provides you a predefined endpoint that listens to and validates incoming paystack's webhook events.
