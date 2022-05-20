@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Myckhel\Paystack\Http\Controllers\ApplePayController;
 use Myckhel\Paystack\Http\Controllers\CustomerController;
 use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
@@ -55,6 +56,10 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,dedicated_account/split'    => 'dva,split',
     'delete,dedicated_account/split'  => 'dva,removeSplit',
     'get,dedicated_account/available_providers'  => 'dva,providers',
+    // apple pay
+    'post,apple-pay/domain'     => 'apple,createDomain',
+    'get,apple-pay/domain'      => 'apple,listDomains',
+    'delete,apple-pay/domain'   => 'apple,removeDomain',
   ];
 
   $controls = [
@@ -64,6 +69,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'split'           => SplitController::class,
     'customer'        => CustomerController::class,
     'dva'             => DedicatedVirtualAccountController::class,
+    'apple'           => ApplePayController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
