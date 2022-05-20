@@ -7,6 +7,7 @@ use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
+use Myckhel\Paystack\Http\Controllers\InvoiceController;
 use Myckhel\Paystack\Http\Controllers\PageController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\ProductController;
@@ -89,6 +90,16 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'put,page/{page}'           => 'page,update',
     'get,page/check_slug_availability/{slug}' => 'page,checkSlug',
     'post,page/{page}/product'  => 'page,addProduct',
+    // invoices
+    'post,paymentrequest'                 => 'invoice,create',
+    'get,paymentrequest'                  => 'invoice,list',
+    'get,paymentrequest/{invoice}'        => 'invoice,fetch',
+    'put,paymentrequest/{invoice}'        => 'invoice,update',
+    'get,paymentrequest/verify/{invoice_code}'    => 'invoice,verify',
+    'post,paymentrequest/notify/{invoice_code}'   => 'invoice,notify',
+    'get,paymentrequest/totals'   => 'invoice,totals',
+    'post,paymentrequest/finalize/{invoice_code}' => 'invoice,finalize',
+    'post,paymentrequest/archive/{invoice_code}'  => 'invoice,archive',
   ];
 
   $controls = [
@@ -103,6 +114,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'subscription'    => SubscriptionController::class,
     'product'         => ProductController::class,
     'page'            => PageController::class,
+    'invoice'         => InvoiceController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

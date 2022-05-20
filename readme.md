@@ -215,7 +215,29 @@ Page::checkSlug($slug, $params);
 Page::addProduct($page, $params);
 ```
 
-### Invoices **TODO**
+### Invoices
+```php
+use Myckhel\Paystack\Support\Invoice;
+
+Invoice::create($params);
+
+Invoice::list($params);
+
+Invoice::fetch($invoice, $params);
+
+Invoice::update($invoice, $params);
+
+Invoice::verify($code, $params);
+
+Invoice::notify($code, $params);
+
+Invoice::totals($params);
+
+Invoice::finalize($code, $params);
+
+Invoice::archive($code, $params);
+```
+
 ### Settlements **TODO**
 ### Transfer Recipients **TODO**
 ### Transfers **TODO**
