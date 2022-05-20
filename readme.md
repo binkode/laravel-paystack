@@ -153,7 +153,19 @@ DedicatedVirtualAccount::removeSplit($params);
 DedicatedVirtualAccount::providers($params);
 ```
 
-### Plans **TODO**
+### Plans
+```php
+use Myckhel\Paystack\Support\Plan;
+
+Plan::create($params);
+
+Plan::list($params);
+
+Plan::fetch($plan, $params);
+
+Plan::update($plan, $params);
+```
+
 ### Subscriptions **TODO**
 ### Products **TODO**
 ### Payment Pages **TODO**
