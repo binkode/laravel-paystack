@@ -10,6 +10,7 @@ use Myckhel\Paystack\Http\Controllers\HookController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
+use Myckhel\Paystack\Http\Controllers\SubscriptionController;
 
 $middleware  = PaystackConfig::config('route.middleware');
 $prefix      = PaystackConfig::config('route.prefix');
@@ -66,6 +67,14 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,plan'                  => 'plan,list',
     'get,plan/{plan}'           => 'plan,fetch',
     'put,plan/{plan}'           => 'plan,update',
+    // subscriptions
+    'post,subscription'                 => 'subscription,create',
+    'get,subscription'                  => 'subscription,list',
+    'get,subscription/{subscription}'   => 'subscription,fetch',
+    'post,subscription/enable'          => 'subscription,enable',
+    'post,subscription/disable'         => 'subscription,disable',
+    'get,subscription/{code}/manage/link'  => 'subscription,link',
+    'post,subscription/{code}/manage/email' => 'subscription,sendUpdateSubscription',
   ];
 
   $controls = [
@@ -77,6 +86,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'dva'             => DedicatedVirtualAccountController::class,
     'apple'           => ApplePayController::class,
     'plan'            => PlanController::class,
+    'subscription'    => SubscriptionController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

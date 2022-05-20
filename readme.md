@@ -166,7 +166,25 @@ Plan::fetch($plan, $params);
 Plan::update($plan, $params);
 ```
 
-### Subscriptions **TODO**
+### Subscriptions
+```php
+use Myckhel\Paystack\Support\Subscription;
+
+Subscription::create($params);
+
+Subscription::list($params);
+
+Subscription::fetch($plan, $params);
+
+Subscription::enable($params);
+
+Subscription::disable($params);
+
+Subscription::link($code, $params);
+
+Subscription::sendUpdateSubscription($code, $params);
+```
+
 ### Products **TODO**
 ### Payment Pages **TODO**
 ### Invoices **TODO**
