@@ -7,6 +7,7 @@ use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
+use Myckhel\Paystack\Http\Controllers\PageController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\ProductController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
@@ -81,6 +82,13 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,product'                  => 'product,list',
     'get,product/{product}'        => 'product,fetch',
     'put,product/{product}'        => 'product,update',
+    // pages
+    'post,page'                 => 'page,create',
+    'get,page'                  => 'page,list',
+    'get,page/{page}'           => 'page,fetch',
+    'put,page/{page}'           => 'page,update',
+    'get,page/check_slug_availability/{slug}' => 'page,checkSlug',
+    'post,page/{page}/product'  => 'page,addProduct',
   ];
 
   $controls = [
@@ -94,6 +102,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'plan'            => PlanController::class,
     'subscription'    => SubscriptionController::class,
     'product'         => ProductController::class,
+    'page'            => PageController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
