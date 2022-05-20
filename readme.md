@@ -91,7 +91,17 @@ Split::remove($split, $params);
 
 ```
 
-### Apple Pay **TODO**
+### Apple Pay
+```php
+use Myckhel\Paystack\Support\ApplePay;
+
+ApplePay::createDomain($params);
+
+ApplePay::listDomains($params);
+
+ApplePay::removeDomain($params);
+```
+
 ### Subaccounts
 ```php
 use Myckhel\Paystack\Support\SubAccount;
