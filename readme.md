@@ -198,7 +198,23 @@ Product::fetch($product, $params);
 Product::update($product, $params);
 ```
 
-### Payment Pages **TODO**
+### Payment Pages
+```php
+use Myckhel\Paystack\Support\Page;
+
+Page::create($params);
+
+Page::list($params);
+
+Page::fetch($page, $params);
+
+Page::update($page, $params);
+
+Page::checkSlug($slug, $params);
+
+Page::addProduct($page, $params);
+```
+
 ### Invoices **TODO**
 ### Settlements **TODO**
 ### Transfer Recipients **TODO**
