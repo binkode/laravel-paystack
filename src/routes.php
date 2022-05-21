@@ -11,6 +11,7 @@ use Myckhel\Paystack\Http\Controllers\InvoiceController;
 use Myckhel\Paystack\Http\Controllers\PageController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\ProductController;
+use Myckhel\Paystack\Http\Controllers\RecipientController;
 use Myckhel\Paystack\Http\Controllers\SettlementController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
@@ -104,6 +105,13 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     // settlements
     'get,settlement'    => 'settlement,list',
     'get,settlement/{settlement}/transactions'    => 'settlement,transactions',
+    // transferrecipients
+    'post,transferrecipient'                 => 'transferrecipt,create',
+    'post,transferrecipient/bulk'            => 'transferrecipt,bulkCreate',
+    'get,transferrecipient'                  => 'transferrecipt,list',
+    'get,transferrecipient/{transferrecipient}'     => 'transferrecipt,fetch',
+    'put,transferrecipient/{transferrecipient}'     => 'transferrecipt,update',
+    'delete,transferrecipient/{transferrecipient}'  => 'transferrecipt,remove',
   ];
 
   $controls = [
@@ -120,6 +128,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'page'            => PageController::class,
     'invoice'         => InvoiceController::class,
     'settlement'      => SettlementController::class,
+    'transferrecipt'  => RecipientController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
