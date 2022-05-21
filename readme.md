@@ -247,7 +247,23 @@ Settlement::list($params);
 Settlement::transactions($settlement, $params);
 ```
 
-### Transfer Recipients **TODO**
+### Transfer Recipients
+```php
+use Myckhel\Paystack\Support\Recipient;
+
+Recipient::create($params);
+
+Recipient::bulkCreate($params);
+
+Recipient::list($params);
+
+Recipient::fetch($recipient, $params);
+
+Recipient::update($recipient, $params);
+
+Recipient::remove($recipient, $params);
+```
+
 ### Transfers **TODO**
 ### Transfers Control **TODO**
 ### Bulk Charges **TODO**
