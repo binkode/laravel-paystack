@@ -264,7 +264,23 @@ Recipient::update($recipient, $params);
 Recipient::remove($recipient, $params);
 ```
 
-### Transfers **TODO**
+### Transfers
+```php
+use Myckhel\Paystack\Support\Transfer;
+
+Transfer::initiate($params);
+
+Transfer::finalize($params);
+
+Transfer::bulkCreate($params);
+
+Transfer::list($params);
+
+Transfer::fetch($transfer, $params);
+
+Transfer::fetch($reference, $params);
+```
+
 ### Transfers Control **TODO**
 ### Bulk Charges **TODO**
 ### Control Panel **TODO**
