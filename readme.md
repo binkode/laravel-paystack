@@ -281,7 +281,23 @@ Transfer::fetch($transfer, $params);
 Transfer::fetch($reference, $params);
 ```
 
-### Transfers Control **TODO**
+### Transfers Control
+```php
+use Myckhel\Paystack\Support\TransferControl;
+
+TransferControl::balance($params);
+
+TransferControl::balanceLedger($params);
+
+TransferControl::resendTransfersOTP($params);
+
+TransferControl::disableTransfersOTP($params);
+
+TransferControl::finalizeDisableOTP($params);
+
+TransferControl::enableTransfersOTP($params);
+```
+
 ### Bulk Charges **TODO**
 ### Control Panel **TODO**
 ### Charge **TODO**
