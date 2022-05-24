@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Myckhel\Paystack\Http\Controllers\ApplePayController;
+use Myckhel\Paystack\Http\Controllers\BulkChargeController;
 use Myckhel\Paystack\Http\Controllers\CustomerController;
 use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
@@ -128,6 +129,13 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,transfer/disable_otp'     => 'control,disableTransfersOTP',
     'post,transfer/disable_otp_finalize'  => 'control,finalizeDisableOTP',
     'post,transfer/enable_otp'      => 'control,enableTransfersOTP',
+    // bulk charges
+    'post,bulkcharge'                 => 'bulkcharge,initiate',
+    'get,bulkcharge'                  => 'bulkcharge,list',
+    'get,bulkcharge/{bulkcharge}'     => 'bulkcharge,fetch',
+    'get,bulkcharge/{bulkcharge}/charges' => 'bulkcharge,fetchChargesBatch',
+    'get,bulkcharge/pause/{bulkcharge}'   => 'bulkcharge,pauseChargesBatch',
+    'get,bulkcharge/resume/{bulkcharge}'  => 'bulkcharge,resumeChargesBatch',
   ];
 
   $controls = [
@@ -147,6 +155,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'transferrecipt'  => RecipientController::class,
     'transfer'        => TransferController::class,
     'control'         => TransferControlController::class,
+    'bulkcharge'      => BulkChargeController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

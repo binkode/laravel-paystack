@@ -298,7 +298,23 @@ TransferControl::finalizeDisableOTP($params);
 TransferControl::enableTransfersOTP($params);
 ```
 
-### Bulk Charges **TODO**
+### Bulk Charges
+```php
+use Myckhel\Paystack\Support\BulkCharge;
+
+BulkCharge::initiate($params);
+
+BulkCharge::list($params);
+
+BulkCharge::fetch($bulkcharge, $params);
+
+BulkCharge::fetchChargesBatch($bulkcharge, $params);
+
+BulkCharge::pauseChargesBatch($bulkcharge, $params);
+
+BulkCharge::resumeChargesBatch($bulkcharge, $params);
+```
+
 ### Control Panel **TODO**
 ### Charge **TODO**
 ### Disputes **TODO**
