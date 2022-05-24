@@ -16,6 +16,7 @@ use Myckhel\Paystack\Http\Controllers\SettlementController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
 use Myckhel\Paystack\Http\Controllers\SubscriptionController;
+use Myckhel\Paystack\Http\Controllers\TransferControlController;
 use Myckhel\Paystack\Http\Controllers\TransferController;
 
 $middleware  = PaystackConfig::config('route.middleware');
@@ -120,6 +121,13 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,transfer'                  => 'transfer,list',
     'get,transfer/{transfer}'       => 'transfer,fetch',
     'get,transfer/verify/{reference}' => 'transfer,verify',
+    // transfer control
+    'get,balance'                   => 'control,balance',
+    'get,balance/ledger'            => 'control,balanceLedger',
+    'post,transfer/resend_otp'      => 'control,resendTransfersOTP',
+    'post,transfer/disable_otp'     => 'control,disableTransfersOTP',
+    'post,transfer/disable_otp_finalize'  => 'control,finalizeDisableOTP',
+    'post,transfer/enable_otp'      => 'control,enableTransfersOTP',
   ];
 
   $controls = [
@@ -138,6 +146,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'settlement'      => SettlementController::class,
     'transferrecipt'  => RecipientController::class,
     'transfer'        => TransferController::class,
+    'control'         => TransferControlController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
