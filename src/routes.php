@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Myckhel\Paystack\Http\Controllers\ApplePayController;
 use Myckhel\Paystack\Http\Controllers\BulkChargeController;
+use Myckhel\Paystack\Http\Controllers\ControlPanelController;
 use Myckhel\Paystack\Http\Controllers\CustomerController;
 use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
@@ -136,6 +137,9 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,bulkcharge/{bulkcharge}/charges' => 'bulkcharge,fetchChargesBatch',
     'get,bulkcharge/pause/{bulkcharge}'   => 'bulkcharge,pauseChargesBatch',
     'get,bulkcharge/resume/{bulkcharge}'  => 'bulkcharge,resumeChargesBatch',
+    // control panel
+    'get,integration/payment_session_timeout' => 'controlpanel,fetchPaymentSessionTimeout',
+    'put,integration/payment_session_timeout' => 'controlpanel,updatePaymentSessionTimeout',
   ];
 
   $controls = [
@@ -156,6 +160,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'transfer'        => TransferController::class,
     'control'         => TransferControlController::class,
     'bulkcharge'      => BulkChargeController::class,
+    'controlpanel'    => ControlPanelController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
