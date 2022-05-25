@@ -315,7 +315,15 @@ BulkCharge::pauseChargesBatch($bulkcharge, $params);
 BulkCharge::resumeChargesBatch($bulkcharge, $params);
 ```
 
-### Control Panel **TODO**
+### Control Panel
+```php
+use Myckhel\Paystack\Support\ControlPanel;
+
+ControlPanel::fetchPaymentSessionTimeout($params);
+
+ControlPanel::updatePaymentSessionTimeout($params);
+```
+
 ### Charge **TODO**
 ### Disputes **TODO**
 ### Refunds **TODO**
