@@ -324,7 +324,25 @@ ControlPanel::fetchPaymentSessionTimeout($params);
 ControlPanel::updatePaymentSessionTimeout($params);
 ```
 
-### Charge **TODO**
+### Charge
+```php
+use Myckhel\Paystack\Support\Charge;
+
+Charge::create($params);
+
+Charge::submitPin($params);
+
+Charge::submitOtp($params);
+
+Charge::submitPhone($params);
+
+Charge::submitBirthday($params);
+
+Charge::submitAddress($params);
+
+Charge::checkPending($reference, $params);
+```
+
 ### Disputes **TODO**
 ### Refunds **TODO**
 ### Verification **TODO**
