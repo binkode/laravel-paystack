@@ -479,7 +479,7 @@ class EventServiceProvider extends ServiceProvider
 ```
 
 ### Using built in routes
-```
+```py
   POST            apple-pay/domain .............. Myckhel\Paystack\Http\Controllers\ApplePayController@createDomain
   GET|HEAD        apple-pay/domain ............... Myckhel\Paystack\Http\Controllers\ApplePayController@listDomains
   DELETE          apple-pay/domain .............. Myckhel\Paystack\Http\Controllers\ApplePayController@removeDomain
