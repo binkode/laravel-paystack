@@ -23,6 +23,7 @@ use Myckhel\Paystack\Http\Controllers\SplitController;
 use Myckhel\Paystack\Http\Controllers\SubscriptionController;
 use Myckhel\Paystack\Http\Controllers\TransferControlController;
 use Myckhel\Paystack\Http\Controllers\TransferController;
+use Myckhel\Paystack\Http\Controllers\VerificationController;
 
 $middleware  = PaystackConfig::config('route.middleware');
 $prefix      = PaystackConfig::config('route.prefix');
@@ -164,6 +165,10 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,refund'           => 'refund,create',
     'get,refund'            => 'refund,list',
     'get,refund/{refund}'   => 'refund,fetch',
+    // verifications
+    'get,bank/resolve'        => 'verification,resolve',
+    'post,bank/validate'      => 'verification,validateAccount',
+    'get,decision/bin/{bin}'  => 'verification,resolveCardBIN',
   ];
 
   $controls = [
@@ -188,6 +193,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'charge'          => ChargeController::class,
     'dispute'         => DisputeController::class,
     'refund'          => RefundController::class,
+    'verification'    => VerificationController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {

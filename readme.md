@@ -380,7 +380,17 @@ Refund::list($params);
 Refund::fetch($refund, $params);
 ```
 
-### Verification **TODO**
+### Verification
+```php
+use Myckhel\Paystack\Support\Verification;
+
+Verification::resolve($params);
+
+Verification::validateAccount($params);
+
+Verification::resolveCardBIN($bin, $params);
+```
+
 ### Miscellaneous **TODO**
 
 ### Using WebHook route
