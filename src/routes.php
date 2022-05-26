@@ -16,6 +16,7 @@ use Myckhel\Paystack\Http\Controllers\PageController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\ProductController;
 use Myckhel\Paystack\Http\Controllers\RecipientController;
+use Myckhel\Paystack\Http\Controllers\RefundController;
 use Myckhel\Paystack\Http\Controllers\SettlementController;
 use Myckhel\Paystack\Http\Controllers\SubAccountController;
 use Myckhel\Paystack\Http\Controllers\SplitController;
@@ -159,6 +160,10 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,dispute/{dispute}/upload_url'    => 'dispute,getUploadURL',
     'put,dispute/{dispute}/resolve'       => 'dispute,resolve',
     'get,dispute/{dispute}/export'        => 'dispute,export',
+    // refunds
+    'post,refund'           => 'refund,create',
+    'get,refund'            => 'refund,list',
+    'get,refund/{refund}'   => 'refund,fetch',
   ];
 
   $controls = [
@@ -182,6 +187,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'controlpanel'    => ControlPanelController::class,
     'charge'          => ChargeController::class,
     'dispute'         => DisputeController::class,
+    'refund'          => RefundController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
