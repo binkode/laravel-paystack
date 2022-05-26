@@ -12,6 +12,7 @@ use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
 use Myckhel\Paystack\Http\Controllers\InvoiceController;
+use Myckhel\Paystack\Http\Controllers\MiscellaneousController;
 use Myckhel\Paystack\Http\Controllers\PageController;
 use Myckhel\Paystack\Http\Controllers\PlanController;
 use Myckhel\Paystack\Http\Controllers\ProductController;
@@ -169,6 +170,11 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,bank/resolve'        => 'verification,resolve',
     'post,bank/validate'      => 'verification,validateAccount',
     'get,decision/bin/{bin}'  => 'verification,resolveCardBIN',
+    // miscellaneous
+    'get,bank'        => 'miscellaneous,listBanks',
+    'get,banks'       => 'miscellaneous,listProviders',
+    'get,country'     => 'miscellaneous,listCountries',
+    'get,address_verification/states'     => 'miscellaneous,listStates',
   ];
 
   $controls = [
@@ -194,6 +200,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'dispute'         => DisputeController::class,
     'refund'          => RefundController::class,
     'verification'    => VerificationController::class,
+    'miscellaneous'   => MiscellaneousController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
