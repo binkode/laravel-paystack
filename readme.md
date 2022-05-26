@@ -391,7 +391,18 @@ Verification::validateAccount($params);
 Verification::resolveCardBIN($bin, $params);
 ```
 
-### Miscellaneous **TODO**
+### Miscellaneous
+```php
+use Myckhel\Paystack\Support\Miscellaneous;
+
+Miscellaneous::listBanks($params);
+
+Miscellaneous::listProviders($params);
+
+Miscellaneous::listCountries($params);
+
+Miscellaneous::listStates($params);
+```
 
 ### Using WebHook route
 Laravel paystack provides you a predefined endpoint that listens to and validates incoming paystack's webhook events.
