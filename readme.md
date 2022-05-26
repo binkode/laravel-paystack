@@ -480,19 +480,126 @@ class EventServiceProvider extends ServiceProvider
 
 ### Using built in routes
 ```
-  POST            hooks ......................................................... Myckhel\Paystack\Http\Controllers\HookController@hook
-  GET|HEAD        subaccount .............................................. Myckhel\Paystack\Http\Controllers\SubAccountController@list
-  PUT             subaccount/{subaccount} ............................... Myckhel\Paystack\Http\Controllers\SubAccountController@update
-  GET|HEAD        transaction ............................................ Myckhel\Paystack\Http\Controllers\TransactionController@list
-  POST            transaction/charge_authorization ....... Myckhel\Paystack\Http\Controllers\TransactionController@charge_authorization
-  POST            transaction/check_authorization ......... Myckhel\Paystack\Http\Controllers\TransactionController@check_authorization
-  GET|HEAD        transaction/export ................................... Myckhel\Paystack\Http\Controllers\TransactionController@export
-  POST            transaction/initialize ........................... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
-  POST            transaction/partial_debit ..................... Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
-  GET|HEAD        transaction/timeline/{id_or_reference} ......... Myckhel\Paystack\Http\Controllers\TransactionController@viewTimeline
-  GET|HEAD        transaction/totals ................................... Myckhel\Paystack\Http\Controllers\TransactionController@totals
-  GET|HEAD        transaction/verify/{reference} ....................... Myckhel\Paystack\Http\Controllers\TransactionController@verify
-  GET|HEAD        transaction/{transaction} ............................. Myckhel\Paystack\Http\Controllers\TransactionController@fetch
+  POST            apple-pay/domain .............. Myckhel\Paystack\Http\Controllers\ApplePayController@createDomain
+  GET|HEAD        apple-pay/domain ............... Myckhel\Paystack\Http\Controllers\ApplePayController@listDomains
+  DELETE          apple-pay/domain .............. Myckhel\Paystack\Http\Controllers\ApplePayController@removeDomain
+  GET|HEAD        balance ..................... Myckhel\Paystack\Http\Controllers\TransferControlController@balance
+  GET|HEAD        balance/ledger ........ Myckhel\Paystack\Http\Controllers\TransferControlController@balanceLedger
+  GET|HEAD        bank ........................ Myckhel\Paystack\Http\Controllers\MiscellaneousController@listBanks
+  GET|HEAD        bank/resolve ................... Myckhel\Paystack\Http\Controllers\VerificationController@resolve
+  POST            bank/validate .......... Myckhel\Paystack\Http\Controllers\VerificationController@validateAccount
+  GET|HEAD        banks ................... Myckhel\Paystack\Http\Controllers\MiscellaneousController@listProviders
+  POST            bulkcharge ...................... Myckhel\Paystack\Http\Controllers\BulkChargeController@initiate
+  GET|HEAD        bulkcharge .......................... Myckhel\Paystack\Http\Controllers\BulkChargeController@list
+  GET|HEAD        bulkcharge/pause/{bulkcharge} Myckhel\Paystack\Http\Controllers\BulkChargeController@pauseCharge…
+  GET|HEAD        bulkcharge/resume/{bulkcharge} Myckhel\Paystack\Http\Controllers\BulkChargeController@resumeChar…
+  GET|HEAD        bulkcharge/{bulkcharge} ............ Myckhel\Paystack\Http\Controllers\BulkChargeController@fetch
+  GET|HEAD        bulkcharge/{bulkcharge}/charges Myckhel\Paystack\Http\Controllers\BulkChargeController@fetchChar…
+  POST            charge ................................ Myckhel\Paystack\Http\Controllers\ChargeController@create
+  POST            charge/submit_address .......... Myckhel\Paystack\Http\Controllers\ChargeController@submitAddress
+  POST            charge/submit_birthday ........ Myckhel\Paystack\Http\Controllers\ChargeController@submitBirthday
+  POST            charge/submit_otp .................. Myckhel\Paystack\Http\Controllers\ChargeController@submitOtp
+  POST            charge/submit_phone .............. Myckhel\Paystack\Http\Controllers\ChargeController@submitPhone
+  POST            charge/submit_pin .................. Myckhel\Paystack\Http\Controllers\ChargeController@submitPin
+  GET|HEAD        charge/{reference} .............. Myckhel\Paystack\Http\Controllers\ChargeController@checkPending
+  GET|HEAD        country ................. Myckhel\Paystack\Http\Controllers\MiscellaneousController@listCountries
+  POST            customer ............................ Myckhel\Paystack\Http\Controllers\CustomerController@create
+  GET|HEAD        customer .............................. Myckhel\Paystack\Http\Controllers\CustomerController@list
+  POST            customer/deactivate_authorization Myckhel\Paystack\Http\Controllers\CustomerController@deactivat…
+  POST            customer/set_risk_action ... Myckhel\Paystack\Http\Controllers\CustomerController@set_risk_action
+  GET|HEAD        customer/{customer} .................. Myckhel\Paystack\Http\Controllers\CustomerController@fetch
+  PUT             customer/{customer} ................. Myckhel\Paystack\Http\Controllers\CustomerController@update
+  POST            customer/{customer}/identification Myckhel\Paystack\Http\Controllers\CustomerController@identifi…
+  GET|HEAD        decision/bin/{bin} ...... Myckhel\Paystack\Http\Controllers\VerificationController@resolveCardBIN
+  POST            dedicated_account .... Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController@create
+  GET|HEAD        dedicated_account ...... Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController@list
+  GET|HEAD        dedicated_account/available_providers Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountC…
+  POST            dedicated_account/split Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController@split
+  DELETE          dedicated_account/split Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController@remo…
+  GET|HEAD        dedicated_account/{dedicated_account} Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountC…
+  DELETE          dedicated_account/{dedicated_account} Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountC…
+  GET|HEAD        dispute ................................ Myckhel\Paystack\Http\Controllers\DisputeController@list
+  GET|HEAD        dispute/transaction/{dispute} Myckhel\Paystack\Http\Controllers\DisputeController@listTransaction
+  GET|HEAD        dispute/{dispute} ..................... Myckhel\Paystack\Http\Controllers\DisputeController@fetch
+  PUT             dispute/{dispute} .................... Myckhel\Paystack\Http\Controllers\DisputeController@update
+  POST            dispute/{dispute}/evidence ...... Myckhel\Paystack\Http\Controllers\DisputeController@addEvidence
+  GET|HEAD        dispute/{dispute}/export ............. Myckhel\Paystack\Http\Controllers\DisputeController@export
+  PUT             dispute/{dispute}/resolve ........... Myckhel\Paystack\Http\Controllers\DisputeController@resolve
+  GET|HEAD        dispute/{dispute}/upload_url ... Myckhel\Paystack\Http\Controllers\DisputeController@getUploadURL
+  POST            hooks ..................................... Myckhel\Paystack\Http\Controllers\HookController@hook
+  GET|HEAD        integration/payment_session_timeout Myckhel\Paystack\Http\Controllers\ControlPanelController@fet…
+  PUT             integration/payment_session_timeout Myckhel\Paystack\Http\Controllers\ControlPanelController@upd…
+  POST            page .................................... Myckhel\Paystack\Http\Controllers\PageController@create
+  GET|HEAD        page ...................................... Myckhel\Paystack\Http\Controllers\PageController@list
+  GET|HEAD        page/check_slug_availability/{slug} .. Myckhel\Paystack\Http\Controllers\PageController@checkSlug
+  GET|HEAD        page/{page} .............................. Myckhel\Paystack\Http\Controllers\PageController@fetch
+  PUT             page/{page} ............................. Myckhel\Paystack\Http\Controllers\PageController@update
+  POST            page/{page}/product ................. Myckhel\Paystack\Http\Controllers\PageController@addProduct
+  POST            paymentrequest ....................... Myckhel\Paystack\Http\Controllers\InvoiceController@create
+  GET|HEAD        paymentrequest ......................... Myckhel\Paystack\Http\Controllers\InvoiceController@list
+  POST            paymentrequest/archive/{invoice_code} Myckhel\Paystack\Http\Controllers\InvoiceController@archive
+  POST            paymentrequest/finalize/{invoice_code} Myckhel\Paystack\Http\Controllers\InvoiceController@final…
+  POST            paymentrequest/notify/{invoice_code} . Myckhel\Paystack\Http\Controllers\InvoiceController@notify
+  GET|HEAD        paymentrequest/totals ................ Myckhel\Paystack\Http\Controllers\InvoiceController@totals
+  GET|HEAD        paymentrequest/verify/{invoice_code} . Myckhel\Paystack\Http\Controllers\InvoiceController@verify
+  GET|HEAD        paymentrequest/{invoice} .............. Myckhel\Paystack\Http\Controllers\InvoiceController@fetch
+  PUT             paymentrequest/{invoice} ............. Myckhel\Paystack\Http\Controllers\InvoiceController@update
+  POST            plan .................................... Myckhel\Paystack\Http\Controllers\PlanController@create
+  GET|HEAD        plan ...................................... Myckhel\Paystack\Http\Controllers\PlanController@list
+  GET|HEAD        plan/{plan} .............................. Myckhel\Paystack\Http\Controllers\PlanController@fetch
+  PUT             plan/{plan} ............................. Myckhel\Paystack\Http\Controllers\PlanController@update
+  POST            product .............................. Myckhel\Paystack\Http\Controllers\ProductController@create
+  GET|HEAD        product ................................ Myckhel\Paystack\Http\Controllers\ProductController@list
+  GET|HEAD        product/{product} ..................... Myckhel\Paystack\Http\Controllers\ProductController@fetch
+  PUT             product/{product} .................... Myckhel\Paystack\Http\Controllers\ProductController@update
+  POST            refund ................................ Myckhel\Paystack\Http\Controllers\RefundController@create
+  GET|HEAD        refund .................................. Myckhel\Paystack\Http\Controllers\RefundController@list
+  GET|HEAD        refund/{refund} ........................ Myckhel\Paystack\Http\Controllers\RefundController@fetch
+  GET|HEAD        settlement .......................... Myckhel\Paystack\Http\Controllers\SettlementController@list
+  GET|HEAD        settlement/{settlement}/transactions Myckhel\Paystack\Http\Controllers\SettlementController@tran…
+  POST            split .................................. Myckhel\Paystack\Http\Controllers\SplitController@create
+  GET|HEAD        split .................................... Myckhel\Paystack\Http\Controllers\SplitController@list
+  GET|HEAD        split/{split} ........................... Myckhel\Paystack\Http\Controllers\SplitController@fetch
+  PUT             split/{split} .......................... Myckhel\Paystack\Http\Controllers\SplitController@update
+  POST            split/{split}/subaccount/add .............. Myckhel\Paystack\Http\Controllers\SplitController@add
+  POST            split/{split}/subaccount/remove ........ Myckhel\Paystack\Http\Controllers\SplitController@remove
+  POST            subaccount ........................ Myckhel\Paystack\Http\Controllers\SubAccountController@create
+  GET|HEAD        subaccount .......................... Myckhel\Paystack\Http\Controllers\SubAccountController@list
+  GET|HEAD        subaccount/{subaccount} ............ Myckhel\Paystack\Http\Controllers\SubAccountController@fetch
+  PUT             subaccount/{subaccount} ........... Myckhel\Paystack\Http\Controllers\SubAccountController@update
+  POST            subscription .................... Myckhel\Paystack\Http\Controllers\SubscriptionController@create
+  GET|HEAD        subscription ...................... Myckhel\Paystack\Http\Controllers\SubscriptionController@list
+  POST            subscription/disable ........... Myckhel\Paystack\Http\Controllers\SubscriptionController@disable
+  POST            subscription/enable ............. Myckhel\Paystack\Http\Controllers\SubscriptionController@enable
+  POST            subscription/{code}/manage/email Myckhel\Paystack\Http\Controllers\SubscriptionController@sendUp…
+  GET|HEAD        subscription/{code}/manage/link ... Myckhel\Paystack\Http\Controllers\SubscriptionController@link
+  GET|HEAD        subscription/{subscription} ...... Myckhel\Paystack\Http\Controllers\SubscriptionController@fetch
+  GET|HEAD        transaction ........................ Myckhel\Paystack\Http\Controllers\TransactionController@list
+  POST            transaction/charge_authorization Myckhel\Paystack\Http\Controllers\TransactionController@charge_…
+  POST            transaction/check_authorization Myckhel\Paystack\Http\Controllers\TransactionController@check_au…
+  GET|HEAD        transaction/export ............... Myckhel\Paystack\Http\Controllers\TransactionController@export
+  POST            transaction/initialize ....... Myckhel\Paystack\Http\Controllers\TransactionController@initialize
+  POST            transaction/partial_debit . Myckhel\Paystack\Http\Controllers\TransactionController@partial_debit
+  GET|HEAD        transaction/timeline/{id_or_reference} Myckhel\Paystack\Http\Controllers\TransactionController@v…
+  GET|HEAD        transaction/totals ............... Myckhel\Paystack\Http\Controllers\TransactionController@totals
+  GET|HEAD        transaction/verify/{reference} ... Myckhel\Paystack\Http\Controllers\TransactionController@verify
+  GET|HEAD        transaction/{transaction} ......... Myckhel\Paystack\Http\Controllers\TransactionController@fetch
+  POST            transfer .......................... Myckhel\Paystack\Http\Controllers\TransferController@initiate
+  GET|HEAD        transfer .............................. Myckhel\Paystack\Http\Controllers\TransferController@list
+  POST            transfer/bulk ................... Myckhel\Paystack\Http\Controllers\TransferController@bulkCreate
+  POST            transfer/disable_otp Myckhel\Paystack\Http\Controllers\TransferControlController@disableTransfer…
+  POST            transfer/disable_otp_finalize Myckhel\Paystack\Http\Controllers\TransferControlController@finali…
+  POST            transfer/enable_otp Myckhel\Paystack\Http\Controllers\TransferControlController@enableTransfersO…
+  POST            transfer/finalize_transfer ........ Myckhel\Paystack\Http\Controllers\TransferController@finalize
+  POST            transfer/resend_otp Myckhel\Paystack\Http\Controllers\TransferControlController@resendTransfersO…
+  GET|HEAD        transfer/verify/{reference} ......... Myckhel\Paystack\Http\Controllers\TransferController@verify
+  GET|HEAD        transfer/{transfer} .................. Myckhel\Paystack\Http\Controllers\TransferController@fetch
+  POST            transferrecipient .................. Myckhel\Paystack\Http\Controllers\RecipientController@create
+  GET|HEAD        transferrecipient .................... Myckhel\Paystack\Http\Controllers\RecipientController@list
+  POST            transferrecipient/bulk ......... Myckhel\Paystack\Http\Controllers\RecipientController@bulkCreate
+  GET|HEAD        transferrecipient/{transferrecipient} Myckhel\Paystack\Http\Controllers\RecipientController@fetch
+  PUT             transferrecipient/{transferrecipient} Myckhel\Paystack\Http\Controllers\RecipientController@upda…
+  DELETE          transferrecipient/{transferrecipient} Myckhel\Paystack\Http\Controllers\RecipientController@remo…
 ```
 
 <!-- 
