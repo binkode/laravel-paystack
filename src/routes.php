@@ -7,6 +7,7 @@ use Myckhel\Paystack\Http\Controllers\ChargeController;
 use Myckhel\Paystack\Http\Controllers\ControlPanelController;
 use Myckhel\Paystack\Http\Controllers\CustomerController;
 use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
+use Myckhel\Paystack\Http\Controllers\DisputeController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
 use Myckhel\Paystack\Traits\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
@@ -149,6 +150,15 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'post,charge/submit_birthday' => 'charge,submitBirthday',
     'post,charge/submit_address'  => 'charge,submitAddress',
     'get,charge/{reference}'      => 'charge,checkPending',
+    // disputes
+    'get,dispute'             => 'dispute,list',
+    'get,dispute/{dispute}'   => 'dispute,fetch',
+    'get,dispute/transaction/{dispute}'   => 'dispute,listTransaction',
+    'put,dispute/{dispute}'   => 'dispute,update',
+    'post,dispute/{dispute}/evidence'     => 'dispute,addEvidence',
+    'get,dispute/{dispute}/upload_url'    => 'dispute,getUploadURL',
+    'put,dispute/{dispute}/resolve'       => 'dispute,resolve',
+    'get,dispute/{dispute}/export'        => 'dispute,export',
   ];
 
   $controls = [
@@ -171,6 +181,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'bulkcharge'      => BulkChargeController::class,
     'controlpanel'    => ControlPanelController::class,
     'charge'          => ChargeController::class,
+    'dispute'         => DisputeController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
