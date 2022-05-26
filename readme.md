@@ -369,7 +369,17 @@ Dispute::resolve($dispute, $params);
 Dispute::export($params);
 ```
 
-### Refunds **TODO**
+### Refunds
+```php
+use Myckhel\Paystack\Support\Refund;
+
+Refund::create($params);
+
+Refund::list($params);
+
+Refund::fetch($refund, $params);
+```
+
 ### Verification **TODO**
 ### Miscellaneous **TODO**
 
