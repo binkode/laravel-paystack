@@ -348,7 +348,27 @@ Charge::submitAddress($params);
 Charge::checkPending($reference, $params);
 ```
 
-### Disputes **TODO**
+### Disputes
+```php
+use Myckhel\Paystack\Support\Dispute;
+
+Dispute::list($params);
+
+Dispute::fetch($dispute, $params);
+
+Dispute::listTransaction($dispute, $params);
+
+Dispute::update($dispute, $params);
+
+Dispute::addEvidence($dispute, $params);
+
+Dispute::getUploadURL($dispute, $params);
+
+Dispute::resolve($dispute, $params);
+
+Dispute::export($params);
+```
+
 ### Refunds **TODO**
 ### Verification **TODO**
 ### Miscellaneous **TODO**
