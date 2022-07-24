@@ -36,7 +36,7 @@ return [
     "merchant_email"           => env("PAYSTACK_MERCHANT_EMAIL"),
 
     "route" => [
-        "middleware"    => ['api'], // For injecting middleware to the package's routes
+        "middleware"    => ['paystack_route_disabled', 'api'], // For injecting middleware to the package's routes
         "prefix"    => 'api', // For injecting middleware to the package's routes
     ],
 ];
@@ -546,6 +546,7 @@ class EventServiceProvider extends ServiceProvider
 ```
 
 ### Using built in routes
+> Enable the in built routes by removing `paystack_route_disabled` middleware from paystack's route config. 
 ```py
   POST            apple-pay/domain .............. Myckhel\Paystack\Http\Controllers\ApplePayController@createDomain
   GET|HEAD        apple-pay/domain ............... Myckhel\Paystack\Http\Controllers\ApplePayController@listDomains
