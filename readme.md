@@ -38,7 +38,7 @@ return [
     "route" => [
         "middleware"        => ["paystack_route_disabled", "api"], // For injecting middleware to the package's routes
         "prefix"            => "api", // For injecting middleware to the package's routes
-        "hook_middleware"   => ["paystack_route_disabled", "api"]
+        "hook_middleware"   => ["validate_paystack_hook", "api"]
     ],
 ];
 ```
@@ -408,6 +408,7 @@ Miscellaneous::listStates($params);
 ### Using WebHook route
 Laravel paystack provides you a predefined endpoint that listens to and validates incoming paystack's webhook events.
 It emits `Myckhel\Paystack\Events\Hook` on every incoming hooks which could be listened to.
+The hook request is validated with `validate_paystack_hook` middleware by using the paystack's config `secret_key` against the incoming request.
 
 ## Setup Paystack Webhook
 [Check official page to read more about paystack webhook](https://paystack.com/docs/payments/webhooks/#introduction)

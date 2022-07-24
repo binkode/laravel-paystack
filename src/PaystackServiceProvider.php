@@ -3,6 +3,7 @@
 namespace Myckhel\Paystack;
 
 use Illuminate\Support\ServiceProvider;
+use Myckhel\Paystack\Http\Middleware\ValidatePaystackHook;
 use Myckhel\Paystack\Http\Middleware\DisabledRoute;
 
 class PaystackServiceProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class PaystackServiceProvider extends ServiceProvider
     $this->mergeConfigFrom(__DIR__ . '/../config/paystack.php', 'paystack');
 
     $this->app['router']->aliasMiddleware('paystack_route_disabled',   DisabledRoute::class);
+    $this->app['router']->aliasMiddleware('validate_paystack_hook',    ValidatePaystackHook::class);
 
     // Register the service the package provides.
     $this->app->singleton(
