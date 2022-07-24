@@ -26,13 +26,12 @@ use Myckhel\Paystack\Http\Controllers\TransferControlController;
 use Myckhel\Paystack\Http\Controllers\TransferController;
 use Myckhel\Paystack\Http\Controllers\VerificationController;
 
-$middleware  = PaystackConfig::config('route.middleware');
-$prefix      = PaystackConfig::config('route.prefix');
+$middleware       = PaystackConfig::config('route.middleware');
+$prefix           = PaystackConfig::config('route.prefix');
+$hook_middleware  = PaystackConfig::config('route.hook_middleware');
 
 Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
   $routes = [
-    // hooks
-    'post,hooks'                            => 'hook,hook',
     // transactions
     'get,transaction'                       => 'transaction,list',
     'post,transaction/initialize'           => 'transaction,initialize',
@@ -178,7 +177,6 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
   ];
 
   $controls = [
-    'hook'            => HookController::class,
     'transaction'     => TransactionController::class,
     'subaccount'      => SubAccountController::class,
     'split'           => SplitController::class,
@@ -209,3 +207,8 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     Route::$method($endpoint, [$controls[$control], $func]);
   });
 });
+
+// hooks
+Route::post('hooks', [HookController::class, 'hook'])
+  ->prefix($prefix)
+  ->middleware($hook_middleware);
