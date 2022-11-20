@@ -3,6 +3,7 @@
 namespace Myckhel\Paystack\Traits;
 
 use Illuminate\Support\Facades\Http;
+use Myckhel\Paystack\PaystackConfig;
 
 class Props
 {
@@ -20,7 +21,7 @@ trait Request
 {
   public static function config()
   {
-    return new Props(PayStackConfig::config());
+    return new Props(PaystackConfig::config());
   }
 
   public static function post($endpoint, $params = [], $version = null)

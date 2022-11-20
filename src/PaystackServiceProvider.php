@@ -29,6 +29,13 @@ class PaystackServiceProvider extends ServiceProvider
     );
   }
 
+  protected function registerPublishables(): void
+  {
+    $this->publishes([
+      __DIR__ . '/../config/paystack.php' => config_path('paystack.php'),
+    ], 'config');
+  }
+
   /**
    * Get the services provided by the provider.
    *
@@ -46,6 +53,6 @@ class PaystackServiceProvider extends ServiceProvider
    */
   public function boot()
   {
-    //
+    $this->registerPublishables();
   }
 }

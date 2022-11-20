@@ -9,7 +9,7 @@ use Myckhel\Paystack\Http\Controllers\CustomerController;
 use Myckhel\Paystack\Http\Controllers\DedicatedVirtualAccountController;
 use Myckhel\Paystack\Http\Controllers\DisputeController;
 use Myckhel\Paystack\Http\Controllers\TransactionController;
-use Myckhel\Paystack\Traits\PaystackConfig;
+use Myckhel\Paystack\PaystackConfig;
 use Myckhel\Paystack\Http\Controllers\HookController;
 use Myckhel\Paystack\Http\Controllers\InvoiceController;
 use Myckhel\Paystack\Http\Controllers\MiscellaneousController;

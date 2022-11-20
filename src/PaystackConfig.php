@@ -1,13 +1,13 @@
 <?php
 
-namespace Myckhel\Paystack\Traits;
+namespace Myckhel\Paystack;
 
 use Illuminate\Support\Facades\Config;
 
 /**
  *
  */
-trait PaystackConfig
+class PaystackConfig
 {
   static function config(String $config = null)
   {
