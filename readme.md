@@ -11,6 +11,7 @@ Use [Paystack](https://paystack.com) Apis in your laravel project.
   <tr>
     <td valign="top"><h2><a href="https://documenter.getpostman.com/view/9558301/Uz59PzqX#63ca3e0a-1018-40cd-a859-564dbc66c9e3">📚 APIs Documentation Link</a></h2></td>
     <td valign="top"><h2><a href="https://paystack.com/docs">📚 Paystack Doc Link</a></h2></td>
+    <td valign="top"><h2><a href="https://github.com/myckhel/paystack-demo">🌐 Laravel Paystack Demo</a></h2></td>
   </tr>
 </table>
 
