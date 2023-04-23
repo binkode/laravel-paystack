@@ -9,9 +9,9 @@ Use [Paystack](https://paystack.com) Apis in your laravel project.
 [![Postman Collection](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/myckhel/workspace/myckhel/collection/9558301-024596ae-713a-4890-b12b-6842195ef802?action=share&creator=9558301)
 <table border="0">
   <tr>
-    <td valign="top"><h2><a href="https://documenter.getpostman.com/view/9558301/Uz59PzqX#63ca3e0a-1018-40cd-a859-564dbc66c9e3">📚 APIs Documentation Link</a></h2></td>
-    <td valign="top"><h2><a href="https://paystack.com/docs">📚 Paystack Doc Link</a></h2></td>
-    <td valign="top"><h2><a href="https://github.com/myckhel/paystack-demo">🌐 Laravel Paystack Demo</a></h2></td>
+    <td valign="top"><h2><a href="https://documenter.getpostman.com/view/9558301/Uz59PzqX#63ca3e0a-1018-40cd-a859-564dbc66c9e3">📚 APIs Documentation</a></h2></td>
+    <td valign="top"><h2><a href="https://paystack.com/docs">📚 Paystack Doc</a></h2></td>
+    <td valign="top"><h2><a href="https://github.com/myckhel/paystack-demo">🌐 Demo App</a></h2></td>
   </tr>
 </table>
 
