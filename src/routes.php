@@ -209,6 +209,6 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
 });
 
 // hooks
-Route::post('hooks', [HookController::class, 'hook'])
+Route::any('hooks', [HookController::class, 'hook'])
   ->prefix($prefix)
   ->middleware($hook_middleware);
