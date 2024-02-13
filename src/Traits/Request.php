@@ -1,9 +1,9 @@
 <?php
 
-namespace Myckhel\Paystack\Traits;
+namespace Binkode\Paystack\Traits;
 
 use Illuminate\Support\Facades\Http;
-use Myckhel\Paystack\PaystackConfig;
+use Binkode\Paystack\PaystackConfig;
 
 class Props
 {

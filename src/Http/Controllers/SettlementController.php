@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Settlement;
+use Binkode\Paystack\Support\Settlement;
 
 class SettlementController extends Controller
 {

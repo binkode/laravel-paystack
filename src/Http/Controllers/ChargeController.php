@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Charge;
+use Binkode\Paystack\Support\Charge;
 
 class ChargeController extends Controller
 {

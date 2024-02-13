@@ -1,5 +1,5 @@
 {
-  "name": "myckhel/laravel-paystack",
+  "name": "binkode/laravel-paystack",
   "description": "A description for laravel-paystack.",
   "type": "package",
   "license": "MIT",
@@ -17,12 +17,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Myckhel\\Paystack\\": "src/"
+      "Binkode\\Paystack\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Myckhel\\Paystack\\Tests\\": "tests"
+      "Binkode\\Paystack\\Tests\\": "tests"
     }
   },
   "scripts": {
@@ -31,10 +31,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Myckhel\\Paystack\\PaystackServiceProvider"
+        "Binkode\\Paystack\\PaystackServiceProvider"
       ],
       "aliases": {
-        "Paystack": "Myckhel\\Paystack\\Facades\\Paystack"
+        "Paystack": "Binkode\\Paystack\\Facades\\Paystack"
       }
     }
   },

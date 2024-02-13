@@ -1,6 +1,6 @@
 <?php
 
-namespace Myckhel\Paystack\Events;
+namespace Binkode\Paystack\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

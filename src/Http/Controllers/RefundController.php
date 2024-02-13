@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Refund;
+use Binkode\Paystack\Support\Refund;
 
 class RefundController extends Controller
 {

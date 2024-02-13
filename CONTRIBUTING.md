@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/myckhel/laravel-paystack).
+We accept contributions via Pull Requests on [Github](https://github.com/binkode/laravel-paystack).
 
 
 ## Pull Requests

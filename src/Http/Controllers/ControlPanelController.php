@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\ControlPanel;
+use Binkode\Paystack\Support\ControlPanel;
 
 class ControlPanelController extends Controller
 {

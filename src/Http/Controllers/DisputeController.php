@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Dispute;
+use Binkode\Paystack\Support\Dispute;
 
 class DisputeController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Product;
+use Binkode\Paystack\Support\Product;
 
 class ProductController extends Controller
 {

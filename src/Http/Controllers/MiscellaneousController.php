@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Miscellaneous;
+use Binkode\Paystack\Support\Miscellaneous;
 
 class MiscellaneousController extends Controller
 {

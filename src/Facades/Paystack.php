@@ -1,6 +1,6 @@
 <?php
 
-namespace Myckhel\Paystack\Facades;
+namespace Binkode\Paystack\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

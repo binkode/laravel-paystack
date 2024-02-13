@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\DedicatedVirtualAccount;
+use Binkode\Paystack\Support\DedicatedVirtualAccount;
 
 class DedicatedVirtualAccountController extends Controller
 {

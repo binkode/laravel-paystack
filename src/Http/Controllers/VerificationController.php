@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Verification;
+use Binkode\Paystack\Support\Verification;
 
 class VerificationController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Plan;
+use Binkode\Paystack\Support\Plan;
 
 class PlanController extends Controller
 {

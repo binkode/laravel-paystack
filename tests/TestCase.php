@@ -1,6 +1,6 @@
 <?php
 
-namespace Myckhel\Paystack\Tests;
+namespace Binkode\Paystack\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -16,7 +16,7 @@ class TestCase extends Orchestra
   protected function getPackageProviders($app)
   {
     return [
-      \Myckhel\Paystack\PaystackServiceProvider::class,
+      \Binkode\Paystack\PaystackServiceProvider::class,
     ];
   }
 

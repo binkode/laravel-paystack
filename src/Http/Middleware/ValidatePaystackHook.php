@@ -1,10 +1,10 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Middleware;
+namespace Binkode\Paystack\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Myckhel\Paystack\PaystackConfig;
+use Binkode\Paystack\PaystackConfig;
 
 class ValidatePaystackHook
 {

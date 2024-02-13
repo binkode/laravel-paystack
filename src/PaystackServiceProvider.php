@@ -1,10 +1,10 @@
 <?php
 
-namespace Myckhel\Paystack;
+namespace Binkode\Paystack;
 
 use Illuminate\Support\ServiceProvider;
-use Myckhel\Paystack\Http\Middleware\ValidatePaystackHook;
-use Myckhel\Paystack\Http\Middleware\DisabledRoute;
+use Binkode\Paystack\Http\Middleware\ValidatePaystackHook;
+use Binkode\Paystack\Http\Middleware\DisabledRoute;
 
 class PaystackServiceProvider extends ServiceProvider
 {

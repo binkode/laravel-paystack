@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Events\Hook;
+use Binkode\Paystack\Events\Hook;
 use Illuminate\Http\Request;
 
 class HookController extends Controller

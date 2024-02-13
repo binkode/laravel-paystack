@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Transfer;
+use Binkode\Paystack\Support\Transfer;
 
 class TransferController extends Controller
 {

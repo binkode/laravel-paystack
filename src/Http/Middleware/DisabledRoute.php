@@ -1,6 +1,6 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Middleware;
+namespace Binkode\Paystack\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

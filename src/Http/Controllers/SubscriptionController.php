@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Subscription;
+use Binkode\Paystack\Support\Subscription;
 
 class SubscriptionController extends Controller
 {

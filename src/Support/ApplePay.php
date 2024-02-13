@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Support;
+namespace Binkode\Paystack\Support;
 
-use Myckhel\Paystack\Traits\Request;
+use Binkode\Paystack\Traits\Request;
 
 /**
  * The Apple Pay API allows you register your application's

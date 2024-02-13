@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Support;
+namespace Binkode\Paystack\Support;
 
-use Myckhel\Paystack\Traits\Request;
+use Binkode\Paystack\Traits\Request;
 
 /**
  * The Control Panel API allows you manage some settings on your integration

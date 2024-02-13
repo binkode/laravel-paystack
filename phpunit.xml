@@ -4,7 +4,7 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="myckhel/laravel-paystack Test Suite">
+        <testsuite name="binkode/laravel-paystack Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

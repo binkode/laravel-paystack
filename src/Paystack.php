@@ -1,6 +1,6 @@
 <?php
 
-namespace Myckhel\Paystack;
+namespace Binkode\Paystack;
 
 use Illuminate\Support\Facades\Config;
 

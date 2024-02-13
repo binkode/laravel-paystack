@@ -1,8 +1,8 @@
 <?php
 
-namespace Myckhel\Paystack\Http\Controllers;
+namespace Binkode\Paystack\Http\Controllers;
 
-use Myckhel\Paystack\Support\Customer;
+use Binkode\Paystack\Support\Customer;
 
 class CustomerController extends Controller
 {
