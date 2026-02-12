@@ -4,7 +4,6 @@ Use [Paystack](https://paystack.com) Apis in your laravel project.
 > There are other libraries but this was created to solve the issues such as flexibility and ability to call paystack apis in laravel Job scope.
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Travis](https://img.shields.io/travis/binkode/laravel-paystack.svg?style=flat-square)]()
 [![Total Downloads](https://img.shields.io/packagist/dt/myckhel/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/myckhel/laravel-paystack)
 [![Postman Collection](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/myckhel/workspace/myckhel/collection/9558301-024596ae-713a-4890-b12b-6842195ef802?action=share&creator=9558301)
 <table border="0">
