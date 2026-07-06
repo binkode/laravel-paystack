@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - larvel-13-support
   pull_request:
 
 jobs:
@@ -22,6 +23,9 @@ jobs:
           - laravel: "12.*"
             testbench: "10.*"
             php: "8.3"
+          - laravel: "13.*"
+            testbench: "11.*"
+            php: "8.4"
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
@@ -46,10 +50,12 @@ jobs:
             composer-${{ runner.os }}-${{ matrix.php }}-
 
       - name: Install matrix dependencies
+        env:
+          COMPOSER_NO_BLOCKING: 1
+          COMPOSER_NO_SECURITY_BLOCKING: 1
         run: |
-          composer require --no-interaction --no-update \
-            illuminate/support:${{ matrix.laravel }} \
-            orchestra/testbench:${{ matrix.testbench }}
+          composer require --no-interaction --no-update "illuminate/support:${{ matrix.laravel }}"
+          composer require --dev --no-interaction --no-update "orchestra/testbench:${{ matrix.testbench }}"
           composer update --prefer-dist --no-interaction --no-progress --with-all-dependencies
 
       - name: Run tests
