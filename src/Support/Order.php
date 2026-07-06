@@ -59,6 +59,6 @@ class Order
    */
   static function validate($order, $params = [])
   {
-    return self::get("/order/validate/$order", $params);
+    return self::get("/order/$order/validate", $params);
   }
 }

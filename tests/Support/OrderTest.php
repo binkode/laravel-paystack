@@ -56,7 +56,7 @@ class OrderTest extends TestCase
   public function test_validate_order()
   {
     Http::fake([
-      'https://api.paystack.co/order/validate/ord_123' => Http::response(['status' => true], 200)
+      'https://api.paystack.co/order/ord_123/validate' => Http::response(['status' => true], 200)
     ]);
 
     $response = Order::validate('ord_123');

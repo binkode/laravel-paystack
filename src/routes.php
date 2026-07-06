@@ -199,7 +199,7 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,order'                                => 'order,list',
     'get,order/{order}'                        => 'order,fetch',
     'get,order/product/{product}'              => 'order,fetchProductOrders',
-    'get,order/validate/{order}'               => 'order,validate',
+    'get,order/{order}/validate'               => 'order,validate',
   ];
 
   $controls = [
