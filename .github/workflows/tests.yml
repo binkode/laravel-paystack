@@ -5,6 +5,8 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - laravel-13-support
 
 jobs:
   tests:
@@ -22,6 +24,9 @@ jobs:
           - laravel: "12.*"
             testbench: "10.*"
             php: "8.3"
+          - laravel: "13.*"
+            testbench: "11.*"
+            php: "8.4"
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
