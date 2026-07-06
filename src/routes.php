@@ -34,8 +34,8 @@ $prefix           = PaystackConfig::config('route.prefix');
 $hook_middleware  = PaystackConfig::config('route.hook_middleware');
 
 $prefixString = is_string($prefix) ? $prefix : null;
-$middlewareArray = is_array($middleware) ? $middleware : (is_string($middleware) ? [$middleware] : null);
-$hookMiddlewareArray = is_array($hook_middleware) ? $hook_middleware : (is_string($hook_middleware) ? [$hook_middleware] : null);
+$middlewareArray = is_array($middleware) ? array_map(fn ($v) => is_scalar($v) || $v instanceof \Stringable ? (string) $v : '', $middleware) : (is_string($middleware) ? [$middleware] : null);
+$hookMiddlewareArray = is_array($hook_middleware) ? array_map(fn ($v) => is_scalar($v) || $v instanceof \Stringable ? (string) $v : '', $hook_middleware) : (is_string($hook_middleware) ? [$hook_middleware] : null);
 
 Route::group(['prefix' => $prefixString, 'middleware' => $middlewareArray], function () {
   $routes = [

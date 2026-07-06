@@ -15,7 +15,7 @@ class Props
   public mixed $route = null;
 
   /**
-   * @param array<string, mixed> $props
+   * @param array<mixed> $props
    */
   function __construct(array $props)
   {
