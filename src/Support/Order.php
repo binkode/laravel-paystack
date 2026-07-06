@@ -15,7 +15,7 @@ class Order
   /**
    * Create an order on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function create($params = [])
   {
@@ -25,7 +25,7 @@ class Order
   /**
    * List orders available on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function list($params = [])
   {
@@ -35,7 +35,7 @@ class Order
   /**
    * Get details of an order on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function fetch($order, $params = [])
   {
@@ -45,7 +45,7 @@ class Order
   /**
    * Get orders associated with a product.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function fetchProductOrders($product, $params = [])
   {
@@ -55,7 +55,7 @@ class Order
   /**
    * Validate an order.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function validate($order, $params = [])
   {

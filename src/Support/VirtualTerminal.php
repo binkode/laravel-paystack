@@ -16,7 +16,7 @@ class VirtualTerminal
   /**
    * Create a virtual terminal on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function create($params = [])
   {
@@ -26,7 +26,7 @@ class VirtualTerminal
   /**
    * List virtual terminals available on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function list($params = [])
   {
@@ -36,7 +36,7 @@ class VirtualTerminal
   /**
    * Get details of a virtual terminal on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function fetch($virtual_terminal, $params = [])
   {
@@ -46,7 +46,7 @@ class VirtualTerminal
   /**
    * Update virtual terminal details.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function update($virtual_terminal, $params = [])
   {
@@ -56,7 +56,7 @@ class VirtualTerminal
   /**
    * Deactivate a virtual terminal.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function deactivate($virtual_terminal, $params = [])
   {
@@ -66,7 +66,7 @@ class VirtualTerminal
   /**
    * Assign destinations to a virtual terminal.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function assignDestination($virtual_terminal, $params = [])
   {
@@ -76,7 +76,7 @@ class VirtualTerminal
   /**
    * Remove a destination from a virtual terminal.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function unassignDestination($virtual_terminal, $destinationId, $params = [])
   {
