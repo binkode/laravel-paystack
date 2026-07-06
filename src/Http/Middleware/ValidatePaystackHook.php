@@ -18,13 +18,13 @@ class ValidatePaystackHook
   public function handle(Request $request, Closure $next)
   {
     $signature = $request->header('x-paystack-signature');
-    if (!$signature) {
+    if (!is_string($signature) || empty($signature)) {
       abort(403, 'Signature header not found');
     }
 
     $signingSecret = PaystackConfig::config('secret_key');
 
-    if (empty($signingSecret)) {
+    if (!is_string($signingSecret) || empty($signingSecret)) {
       abort(403, 'Signing Secret Not Set');
     }
 

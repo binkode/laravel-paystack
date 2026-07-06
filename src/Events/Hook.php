@@ -9,7 +9,7 @@ class Hook
 {
   use Dispatchable, SerializesModels;
 
-  public $event;
+  public mixed $event;
 
   /**
    * Create a new event instance.

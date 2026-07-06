@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Config;
  */
 class PaystackConfig
 {
-  static function config(?String $config = null)
+  /**
+   * @param string|null $config
+   * @return mixed
+   */
+  static function config(?string $config = null): mixed
   {
     return Config::get("paystack" . ($config ? '.' . $config : ''));
   }

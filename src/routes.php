@@ -33,7 +33,11 @@ $middleware       = PaystackConfig::config('route.middleware');
 $prefix           = PaystackConfig::config('route.prefix');
 $hook_middleware  = PaystackConfig::config('route.hook_middleware');
 
-Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
+$prefixString = is_string($prefix) ? $prefix : null;
+$middlewareArray = is_array($middleware) ? $middleware : (is_string($middleware) ? [$middleware] : null);
+$hookMiddlewareArray = is_array($hook_middleware) ? $hook_middleware : (is_string($hook_middleware) ? [$hook_middleware] : null);
+
+Route::group(['prefix' => $prefixString, 'middleware' => $middlewareArray], function () {
   $routes = [
     // transactions
     'get,transaction'                       => 'transaction,list',
@@ -233,11 +237,11 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
   collect($routes)->map(function ($route, $index) use ($controls) {
     [$method, $endpoint] = explode(',', $index);
     [$control, $func] = explode(',', $route);
-    Route::$method($endpoint, [$controls[$control], $func]);
+    Route::match([$method], $endpoint, [$controls[$control], $func]);
   });
 });
 
 // hooks
 Route::any('hooks', [HookController::class, 'hook'])
-  ->prefix($prefix)
-  ->middleware($hook_middleware);
+  ->prefix($prefixString)
+  ->middleware($hookMiddlewareArray);

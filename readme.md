@@ -5,6 +5,7 @@ Laravel wrapper for the [Paystack API](https://paystack.com/docs/), built for di
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/binkode/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/binkode/laravel-paystack)
 [![Total Downloads](https://img.shields.io/packagist/dt/binkode/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/binkode/laravel-paystack)
 [![Tests](https://img.shields.io/github/actions/workflow/status/binkode/laravel-paystack/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/binkode/laravel-paystack/actions/workflows/tests.yml)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%20max-brightgreen?style=flat-square)](https://phpstan.org/)
 [![License](https://img.shields.io/packagist/l/binkode/laravel-paystack.svg?style=flat-square)](LICENSE.md)
 [![Laravel](https://img.shields.io/badge/Laravel-10%20%7C%2011%20%7C%2012-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://packagist.org/packages/binkode/laravel-paystack)
 

@@ -1,0 +1,16 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - src/
+
+    # Level 9 is the highest level
+    level: 9
+
+    ignoreErrors:
+        - '#Method Binkode\\Paystack\\.* has no return type specified\.#'
+        - '#Method Binkode\\Paystack\\.* has parameter \$[a-zA-Z0-9_]+ with no type specified\.#'
+        - '#Method Binkode\\Paystack\\.* should return .* but returns mixed\.#'
+        - '#Method Binkode\\Paystack\\Http\\Controllers\\.*::__call\(\) has parameter \$args with no value type specified in iterable type array\.#'

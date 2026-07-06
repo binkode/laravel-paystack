@@ -19,8 +19,10 @@ class PaystackServiceProvider extends ServiceProvider
 
     $this->mergeConfigFrom(__DIR__ . '/../config/paystack.php', 'paystack');
 
-    $this->app['router']->aliasMiddleware('paystack_route_disabled',   DisabledRoute::class);
-    $this->app['router']->aliasMiddleware('validate_paystack_hook',    ValidatePaystackHook::class);
+    /** @var \Illuminate\Routing\Router $router */
+    $router = $this->app->make('router');
+    $router->aliasMiddleware('paystack_route_disabled',   DisabledRoute::class);
+    $router->aliasMiddleware('validate_paystack_hook',    ValidatePaystackHook::class);
 
     // Register the service the package provides.
     $this->app->singleton(
@@ -39,7 +41,7 @@ class PaystackServiceProvider extends ServiceProvider
   /**
    * Get the services provided by the provider.
    *
-   * @return array
+   * @return array<int, string>
    */
   function provides()
   {
