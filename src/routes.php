@@ -25,6 +25,9 @@ use Binkode\Paystack\Http\Controllers\SubscriptionController;
 use Binkode\Paystack\Http\Controllers\TransferControlController;
 use Binkode\Paystack\Http\Controllers\TransferController;
 use Binkode\Paystack\Http\Controllers\VerificationController;
+use Binkode\Paystack\Http\Controllers\TerminalController;
+use Binkode\Paystack\Http\Controllers\VirtualTerminalController;
+use Binkode\Paystack\Http\Controllers\OrderController;
 
 $middleware       = PaystackConfig::config('route.middleware');
 $prefix           = PaystackConfig::config('route.prefix');
@@ -174,6 +177,29 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'get,banks'       => 'miscellaneous,listProviders',
     'get,country'     => 'miscellaneous,listCountries',
     'get,address_verification/states'     => 'miscellaneous,listStates',
+    // terminal
+    'get,terminal'                             => 'terminal,list',
+    'get,terminal/{terminal}'                  => 'terminal,fetch',
+    'put,terminal/{terminal}'                  => 'terminal,update',
+    'get,terminal/{terminal}/presence'         => 'terminal,fetchPresence',
+    'post,terminal/{terminal}/event'           => 'terminal,sendEvent',
+    'get,terminal/{terminal}/event/{event}'    => 'terminal,fetchEventStatus',
+    'post,terminal/commission_device'          => 'terminal,commission',
+    'post,terminal/decommission_device'        => 'terminal,decommission',
+    // virtual terminal
+    'post,virtual_terminal'                    => 'virtualterminal,create',
+    'get,virtual_terminal'                     => 'virtualterminal,list',
+    'get,virtual_terminal/{virtual_terminal}'  => 'virtualterminal,fetch',
+    'put,virtual_terminal/{virtual_terminal}'  => 'virtualterminal,update',
+    'post,virtual_terminal/{virtual_terminal}/deactivate' => 'virtualterminal,deactivate',
+    'post,virtual_terminal/{virtual_terminal}/destinations' => 'virtualterminal,assignDestination',
+    'delete,virtual_terminal/{virtual_terminal}/destinations/{destination_id}' => 'virtualterminal,unassignDestination',
+    // order
+    'post,order'                               => 'order,create',
+    'get,order'                                => 'order,list',
+    'get,order/{order}'                        => 'order,fetch',
+    'get,order/product/{product}'              => 'order,fetchProductOrders',
+    'get,order/validate/{order}'               => 'order,validate',
   ];
 
   $controls = [
@@ -199,6 +225,9 @@ Route::group(['prefix' => $prefix, 'middleware' => $middleware], function () {
     'refund'          => RefundController::class,
     'verification'    => VerificationController::class,
     'miscellaneous'   => MiscellaneousController::class,
+    'terminal'        => TerminalController::class,
+    'virtualterminal' => VirtualTerminalController::class,
+    'order'           => OrderController::class,
   ];
 
   collect($routes)->map(function ($route, $index) use ($controls) {
