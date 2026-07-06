@@ -84,7 +84,7 @@ Here are common design patterns for using this package across different parts of
 
 ### 1. Controllers (Checkout & Verification)
 
-Controllers should initiate payments and handle callback verification. When an API call fails, the package automatically calls Laravel's `abort()`, throwing an `Symfony\Component\HttpKernel\Exception\HttpException` which is caught by Laravel's global exception handler.
+Controllers should initiate payments and handle callback verification. When an API call fails, the package automatically calls Laravel's `abort()`, throwing a `Symfony\Component\HttpKernel\Exception\HttpException` which is caught by Laravel's global exception handler.
 
 ```php
 namespace App\Http\Controllers;
