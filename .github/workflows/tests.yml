@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - laravel-13-support
+      - larvel-13-support
 
 jobs:
   tests:
