@@ -16,7 +16,7 @@ class Terminal
   /**
    * List terminals available on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function list($params = [])
   {
@@ -26,7 +26,7 @@ class Terminal
   /**
    * Get details of a terminal on your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function fetch($terminal, $params = [])
   {
@@ -36,7 +36,7 @@ class Terminal
   /**
    * Update terminal details.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function update($terminal, $params = [])
   {
@@ -46,7 +46,7 @@ class Terminal
   /**
    * Check the presence/status of a specific terminal.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function fetchPresence($terminal, $params = [])
   {
@@ -56,7 +56,7 @@ class Terminal
   /**
    * Send an event (e.g., transaction/invoice) to a specific terminal.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function sendEvent($terminal, $params = [])
   {
@@ -66,7 +66,7 @@ class Terminal
   /**
    * Check the status of an event sent to a terminal.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function fetchEventStatus($terminal, $event, $params = [])
   {
@@ -76,7 +76,7 @@ class Terminal
   /**
    * Link a debug device to your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function commission($params = [])
   {
@@ -86,7 +86,7 @@ class Terminal
   /**
    * Unlink a debug device from your integration.
    *
-   * @return array
+   * @return \Illuminate\Http\Response
    */
   static function decommission($params = [])
   {
