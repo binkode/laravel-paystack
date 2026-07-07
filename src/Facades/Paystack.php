@@ -22,8 +22,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Binkode\Paystack\Support\Invoice invoice()
  * @method static \Binkode\Paystack\Support\Invoice invoices()
  * @method static \Binkode\Paystack\Support\Miscellaneous miscellaneous()
- * @method static \Binkode\Paystack\Support\Miscellaneous miscellaneouses()
- * @method static \Binkode\Paystack\Support\Order order()
  * @method static \Binkode\Paystack\Support\Order orders()
  * @method static \Binkode\Paystack\Support\Page page()
  * @method static \Binkode\Paystack\Support\Page pages()
