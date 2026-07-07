@@ -59,7 +59,35 @@ return [
 
 ## Quick Usage
 
-Call support classes directly:
+You can call the support classes statically or use the fluent facade wrapper APIs:
+
+### 1. Fluent/Facade API Wrapper (Recommended for IDE Autocomplete)
+
+Using the `Paystack` facade, you can call any support endpoint dynamically as an instance method (supporting both singular and plural forms):
+
+```php
+use Binkode\Paystack\Facades\Paystack;
+
+// Initialize a transaction
+$init = Paystack::transactions()->initialize([
+    "email" => "customer@example.com",
+    "amount" => 500000, // amount in kobo
+]);
+
+// Verify a transaction
+$verify = Paystack::transaction()->verify("reference_here");
+
+// Create a customer
+$customer = Paystack::customers()->create([
+    "email" => "customer@example.com",
+    "first_name" => "Jane",
+    "last_name" => "Doe",
+]);
+```
+
+### 2. Static Support API
+
+Alternatively, you can call methods directly on the support classes statically:
 
 ```php
 use Binkode\Paystack\Support\Transaction;
