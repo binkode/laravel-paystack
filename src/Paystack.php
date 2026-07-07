@@ -315,8 +315,6 @@ class Paystack
       'invoices' => Support\Invoice::class,
 
       'miscellaneous' => Support\Miscellaneous::class,
-      'miscellaneouses' => Support\Miscellaneous::class,
-
       'order' => Support\Order::class,
       'orders' => Support\Order::class,
 
