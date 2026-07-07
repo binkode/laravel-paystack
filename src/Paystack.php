@@ -91,10 +91,6 @@ class Paystack
     return new Support\Miscellaneous();
   }
 
-  public function miscellaneouses(): Support\Miscellaneous
-  {
-    return $this->miscellaneous();
-  }
 
   public function order(): Support\Order
   {
